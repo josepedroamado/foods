@@ -1,23 +1,23 @@
 <?php
 session_start();
 
+//Include library
+require_once('libs/Smarty.class.php');
+
+//Create instance
+$smarty = new Smarty();
+
+//Config smarty folders
+$smarty->template_dir = "templates";
+$smarty->compile_dir = "templates_c";
+
+//Execute logic 
 if(!$_SESSION['logged']){
     $_SESSION['error'] = "Debe ingresar para acceder a las publicaciones.";
     header("Location: login.php");
 }
 else{
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Recetas</title>
-    </head>
-    <body>
-        <h1>Recetas</h1>
-       
-    </body>
-</html>
-<?php
+	//Send result to client
+	$smarty->display('recipies.tpl');
 }
 ?>

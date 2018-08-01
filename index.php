@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Página Principal</title>
-    </head>
-    <body>
-        <h1>Blog Cocina</h1>
-        <div name = "lastRecipies">
-            <h2><a href="recipies.php">Últimas Publicaciones de Recetas</a></h2>
-            Cards
-        </div>
+<?php
+//Include library
+require_once('libs/Smarty.class.php');
 
-        <div name = "lastNotes">
-            <h2><a href="notes.php">Últimas Notas</a></h2>
-            Cards
-        </div>
+//Create instance
+$smarty = new Smarty();
 
-        <div name = "footer">
-            <a href="signup.php">Registarse</a>
-            <a href="login.php">Iniciar Sesión</a>
-        </div>
-    </body>
-</html>
+//Config smarty folders
+$smarty->template_dir = "templates";
+$smarty->compile_dir = "templates_c";
+
+//Execute logic 
+
+//Send result to client
+$smarty->display('index.tpl');
+
+?>

@@ -1,31 +1,23 @@
 <?php
 session_start();
-?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Iniciar Sesión</title>
-    </head>
-    <body>
-        <h1>Iniciar Sesión en el Blog</h1>
-         <form method="POST" action="loginProcess.php">
-            Usuario: 
-            <input type="text" id="userInput" name="userInput" value=""/>
-            <br/>
-            Contraseña:
-            <input type="password" id="passwordInput" name="passwordInput" value=""/>
-            <br/>
-            <input type="submit" value="Ingresar al Blog"/>
-        </form>
-        <div>
-            <?php
-            echo $_SESSION['error'];
-            ?>
-        </div>
-    </body>
-</html>
-<?php
-    unset($_SESSION['error']);
+//Include library
+require_once('libs/Smarty.class.php');
+
+//Create instance
+$smarty = new Smarty();
+
+//Config smarty folders
+$smarty->template_dir = "templates";
+$smarty->compile_dir = "templates_c";
+
+//Execute logic 
+$smarty->assign("userInput", $_COOKIE['user']);
+$smarty->assign("error", $_SESSION['error']);
+
+//Send result to client
+$smarty->display('login.tpl');
+
+unset($_SESSION['error']);
+
 ?>
