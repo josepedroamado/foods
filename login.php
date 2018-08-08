@@ -2,18 +2,16 @@
 session_start();
 
 //Include library
-require_once('libs/Smarty.class.php');
+require_once('includes/smartyAndNavbar.php');
 
-//Create instance
-$smarty = new Smarty();
-
-//Config smarty folders
-$smarty->template_dir = "templates";
-$smarty->compile_dir = "templates_c";
+if ($_SESSION['logged']) {
+	header('Location: index.php');
+}
 
 //Execute logic 
-$smarty->assign("userInput", $_COOKIE['user']);
+$smarty->assign("user", $_COOKIE['user']);
 $smarty->assign("error", $_SESSION['error']);
+
 
 //Send result to client
 $smarty->display('login.tpl');
