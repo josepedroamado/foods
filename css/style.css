@@ -1,6 +1,11 @@
 body, html {
     height: 100%;
 }
+
+.nohover:hover {
+    color: white!important;
+}
+
 .bg-sign {
     /* The image used */
     background-image: url("../img/food.jpg");

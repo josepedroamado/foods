@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 16:00:05
+/* Smarty version 3.1.32, created on 2018-08-11 22:21:41
   from '/var/www/templates/adminUsr.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f0805461b30_58881493',
+  'unifunc' => 'content_5b6f61757dcfd0_11197042',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc6ea38f90f41dc1a90bda7b8511b11ef6420cdf' => 
     array (
       0 => '/var/www/templates/adminUsr.tpl',
-      1 => 1534002920,
+      1 => 1534026099,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f0805461b30_58881493 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f61757dcfd0_11197042 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -50,7 +50,7 @@ function content_5b6f0805461b30_58881493 (Smarty_Internal_Template $_smarty_tpl)
                     <h1>Listado de Usuarios</h1>
                 </div>
                 <div class="col-4 text-md-right my-auto">
-                    <input type="button" name="btnAddUsr" id="btnAddUsr" value="Nuevo Usuario" class="btn indigo darken-4 btn-sm m-0">
+                    <a type="button" name="btnAddUsr" id="btnAddUsr" href="signup.php" class="btn indigo darken-4 btn-sm m-0 nohover">Nuevo Usuario</a>
                 </div>
                 <br>
             </div>
@@ -82,10 +82,17 @@ foreach ($_from as $_smarty_tpl->tpl_vars['usr']->value) {
                             <?php }?>
                         </td>
                         <td>
-                            <input type="button" value="Borrar" class="btn indigo darken-4 btn-sm m-0 btnDelUsr" alt="<?php echo $_smarty_tpl->tpl_vars['usr']->value['usuario_id'];?>
-">
-                            <input type="button" value="Modificar" class="btn indigo darken-4 btn-sm m-0 btnModUsr" alt="<?php echo $_smarty_tpl->tpl_vars['usr']->value['usuario_id'];?>
-">
+                            <form method="GET" action="adminUsrDel.php">
+                                <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['usr']->value['usuario_id'];?>
+" hidden>
+                                <input type="submit" name="Eliminar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0" value="Eliminar">
+                            </form>
+
+                            <form method="GET" action="adminUsrMod.php">
+                                <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['usr']->value['usuario_id'];?>
+" hidden>
+                                <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0" value="Modificar">
+                            </form>
                         </td>
                     </tr>
                 <?php
@@ -111,10 +118,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <!-- MDB core JavaScript -->
         <?php echo '<script'; ?>
  type="text/javascript" src="js/mdb.min.js"><?php echo '</script'; ?>
->
-        <!-- admin-->
-        <?php echo '<script'; ?>
- type="text/javascript" src="js/admin.js"><?php echo '</script'; ?>
 >
     </body>
 </html><?php }

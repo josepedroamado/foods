@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-05 23:46:04
+/* Smarty version 3.1.32, created on 2018-08-11 22:21:42
   from '/var/www/templates/signup.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b678c3cc8a9e4_83594727',
+  'unifunc' => 'content_5b6f6176b8eaf0_16560717',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ad81b78769a7d3ca81c6512eb91024df04183f1a' => 
     array (
       0 => '/var/www/templates/signup.tpl',
-      1 => 1533512067,
+      1 => 1534002969,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b678c3cc8a9e4_83594727 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f6176b8eaf0_16560717 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Registrarse en el Blog</title>
+        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 

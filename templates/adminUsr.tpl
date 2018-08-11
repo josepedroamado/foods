@@ -25,7 +25,7 @@
                     <h1>Listado de Usuarios</h1>
                 </div>
                 <div class="col-4 text-md-right my-auto">
-                    <input type="button" name="btnAddUsr" id="btnAddUsr" value="Nuevo Usuario" class="btn indigo darken-4 btn-sm m-0">
+                    <a type="button" name="btnAddUsr" id="btnAddUsr" href="signup.php" class="btn indigo darken-4 btn-sm m-0 nohover">Nuevo Usuario</a>
                 </div>
                 <br>
             </div>
@@ -50,8 +50,15 @@
                             {/if}
                         </td>
                         <td>
-                            <input type="button" value="Borrar" class="btn indigo darken-4 btn-sm m-0 btnDelUsr" alt="{$usr['usuario_id']}">
-                            <input type="button" value="Modificar" class="btn indigo darken-4 btn-sm m-0 btnModUsr" alt="{$usr['usuario_id']}">
+                            <form method="GET" action="adminUsrDel.php">
+                                <input type="text" id="id" name="id" class="form-control" value="{$usr['usuario_id']}" hidden>
+                                <input type="submit" name="Eliminar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0" value="Eliminar">
+                            </form>
+
+                            <form method="GET" action="adminUsrMod.php">
+                                <input type="text" id="id" name="id" class="form-control" value="{$usr['usuario_id']}" hidden>
+                                <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0" value="Modificar">
+                            </form>
                         </td>
                     </tr>
                 {/foreach}
@@ -67,7 +74,5 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
-        <!-- admin-->
-        <script type="text/javascript" src="js/admin.js"></script>
     </body>
 </html>

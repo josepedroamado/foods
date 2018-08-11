@@ -41,7 +41,7 @@ if($_SESSION['admin'] == 1){
 	}
 
 	//Send result to client
-	$smarty->display('newPub.tpl');
+	$smarty->display('adminPubNew.tpl');
 }
 else{
 	$_SESSION['error'] = "Debe ingresar como administrador para acceder al menu de Administración del Blog.";

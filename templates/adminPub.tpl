@@ -24,7 +24,7 @@
                     <h1>Listado de Publicaciones</h1>
                 </div>
                 <div class="col-4 text-md-right my-auto">
-                    <a href="newPub.php" name="btnAddPub" id="btnAddPub" class="btn indigo darken-4 btn-sm m-0">Nueva Publicación</a>
+                    <a href="adminPubNew.php" name="btnAddPub" id="btnAddPub" class="btn indigo darken-4 btn-sm m-0 nohover">Nueva Publicación</a>
                 </div>
                 <br>
             </div>
@@ -50,11 +50,11 @@
                             <td>{$pub['nombreTipo']}</td>
                             <td>{$pub['nombreUsr']} {$pub['apellido']}</td>
                             <td>
-                                <form method="GET" action="post.php">
+                                <form method="GET" action="adminPubDel.php">
                                   <input type="text" id="id" name="id" class="form-control" value="{$pub['publicacion_id']}" hidden>
-                                  <input type="submit" name="Borrar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnDeletePub" value="Borrar">
+                                  <input type="submit" name="Eliminar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnDeletePub" value="Eliminar">
                                 </form>
-                                <form method="GET" action="post.php">
+                                <form method="GET" action="adminPubMod.php">
                                   <input type="text" id="id" name="id" class="form-control" value="{$pub['publicacion_id']}" hidden>
                                    <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnModifPub" value="Modificar">
                                 </form>

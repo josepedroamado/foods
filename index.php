@@ -9,8 +9,8 @@ require_once('includes/connectDB.php');
 if ($conn) {
 	$sql = "SELECT publicaciones.*, categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido
 			FROM publicaciones, categorias, usuarios
-			WHERE publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = 1 AND publicaciones.categoria_id = categorias.categoria_id
-			ORDER BY fecha ASC";
+			WHERE publicaciones.eliminado = 0 AND publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = 1 AND publicaciones.categoria_id = categorias.categoria_id
+			ORDER BY fecha DESC LIMIT 0, 4";
 	$parametros = array();
 	$result = $conn->consulta($sql, $parametros);
 	if ($result) {
@@ -29,8 +29,8 @@ else{
 if ($conn) {
 	$sql = "SELECT publicaciones.*, categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido
 			FROM publicaciones, categorias, usuarios
-			WHERE publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = 2 AND publicaciones.categoria_id = categorias.categoria_id
-			ORDER BY fecha ASC";
+			WHERE publicaciones.eliminado = 0 AND publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = 2 AND publicaciones.categoria_id = categorias.categoria_id
+			ORDER BY fecha DESC LIMIT 0, 4";
 	$parametros = array();
 	$result = $conn->consulta($sql, $parametros);
 	if ($result) {

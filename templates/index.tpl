@@ -24,7 +24,7 @@
             <!-- Section: Blog v.3 -->
             <section class="mx-5 px-5 pt-1 shadow white">
               <!-- Section heading -->
-              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a></h2>
+              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a><hr></h2>
               
               {foreach from=$recipies item=recipie} 
                 <!-- Grid row -->
@@ -78,7 +78,7 @@
             <!-- Section: Blog v.3 -->
             <section class="mx-5 px-5 pt-1 shadow white">
               <!-- Section heading -->
-              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Notas</a></h2>
+              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Notas</a><hr></h2>
 
               {foreach from=$notes item=note} 
                 <!-- Grid row -->

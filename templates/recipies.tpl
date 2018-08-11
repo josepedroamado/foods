@@ -17,16 +17,16 @@
     </head>
     <body>
         {include file="navbar.tpl"}
-        <div class="pt-5 my-5">
-            <h1>Recetas</h1>
-        </div>
         
         <!-- Section: Recipies -->
           <div name = "lastRecipies" class="pt-5 mt-5 px-5 mx-5">
             <!-- Section: Blog v.3 -->
             <section class="mx-5 px-5 pt-1 shadow blue-white">
               <!-- Section heading -->
-              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a></h2>
+              <input type="submit" class="btn btn-primary btn-md" name="submit" value="Nueva Receta"><br>
+              <h2 class="h1-responsive font-weight-bold text-center my-5">Publicaciones de Recetas<hr></h2>
+              
+             <!-- > <button class="btn-primary">Nueva Receta</button> -->
               
               {foreach from=$recipies item=recipie} 
                 <!-- Grid row -->

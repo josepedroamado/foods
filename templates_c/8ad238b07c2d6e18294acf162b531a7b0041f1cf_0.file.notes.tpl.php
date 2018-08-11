@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 15:56:25
+/* Smarty version 3.1.32, created on 2018-08-11 22:54:30
   from '/var/www/templates/notes.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f07290db143_72690275',
+  'unifunc' => 'content_5b6f69264ed7a7_09124297',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ad238b07c2d6e18294acf162b531a7b0041f1cf' => 
     array (
       0 => '/var/www/templates/notes.tpl',
-      1 => 1534002951,
+      1 => 1534028063,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f07290db143_72690275 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f69264ed7a7_09124297 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -44,9 +45,74 @@ function content_5b6f07290db143_72690275 (Smarty_Internal_Template $_smarty_tpl)
         <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-        <div class="pt-5 my-5">
-            <h1>Notas</h1>
-        </div>
+        <!-- Section: Notes-->
+          <div name = "lastNotes" class="pt-5 px-5 mx-5">
+            <!-- Section: Blog v.3 -->
+            <section class="mx-5 px-5 pt-1 shadow white">
+              <!-- Section heading -->
+              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Notas</a><hr></h2>
+
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['notes']->value, 'note');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['note']->value) {
+?> 
+                <!-- Grid row -->
+                <div class="row">
+                  <!-- Grid column -->
+                  <div class="col-lg-5 col-xl-4">
+                    <!-- Featured image -->
+                    <div class="">
+                      <img class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 img-fluid" src="img/<?php echo $_smarty_tpl->tpl_vars['note']->value['imagen'];?>
+">
+                      <a>
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-lg-7 col-xl-8">
+                    <!-- Category -->
+                    <a href="#!" class="pink-text">
+                      <h6 class="font-weight-bold mb-3">
+                        <i class="fa fa-map pr-2"></i>
+                        <?php echo $_smarty_tpl->tpl_vars['note']->value['nombreCat'];?>
+
+                      </h6>
+                    </a>
+                    <!-- Post title -->
+                    <h3 class="font-weight-bold mb-3"><strong><?php echo smarty_modifier_capitalize(mb_strtolower($_smarty_tpl->tpl_vars['note']->value['titulo'], 'UTF-8'));?>
+</strong></h3>
+                    <!-- Excerpt -->
+                    <p class="dark-grey-text"><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['note']->value['texto'],150);?>
+</p>
+                    <!-- Post data -->
+                    <p>escrito por <a class="font-weight-bold"><?php echo $_smarty_tpl->tpl_vars['note']->value['nombreUsr'];?>
+ <?php echo $_smarty_tpl->tpl_vars['note']->value['apellido'];?>
+</a>, <?php echo $_smarty_tpl->tpl_vars['note']->value['fecha'];?>
+</p>
+                    <!-- Read more button -->
+                    <form method="GET" action="post.php">
+                      <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['note']->value['publicacion_id'];?>
+" hidden>
+                      <input type="submit" class="btn btn-primary btn-md" name="submit" value="Leer más!">
+                    </form>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+                <hr class="my-5">
+              <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            </section>
+            <!-- Section: Blog v.3 -->
+          </div>
+          <!--./Section: Notes-->
 
         <!-- SCRIPTS -->
         <!-- JQuery -->

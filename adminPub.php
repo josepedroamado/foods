@@ -10,7 +10,7 @@ if($_SESSION['admin'] == 1){
 	if ($conn) {
 		$sql = "SELECT publicaciones.*, categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido, tipos.nombreTipo
 				FROM publicaciones, categorias, usuarios, tipos
-				WHERE publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = tipos.tipo_id AND publicaciones.categoria_id = categorias.categoria_id
+				WHERE publicaciones.eliminado = 0 AND publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = tipos.tipo_id AND publicaciones.categoria_id = categorias.categoria_id
 				ORDER BY fecha ASC";
 		$parametros = array();
 		$result = $conn->consulta($sql, $parametros);

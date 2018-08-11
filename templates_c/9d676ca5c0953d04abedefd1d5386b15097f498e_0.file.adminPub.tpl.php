@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 17:28:56
+/* Smarty version 3.1.32, created on 2018-08-11 21:13:39
   from '/var/www/templates/adminPub.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f1cd87ffa64_95633536',
+  'unifunc' => 'content_5b6f51832b23f9_20234512',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9d676ca5c0953d04abedefd1d5386b15097f498e' => 
     array (
       0 => '/var/www/templates/adminPub.tpl',
-      1 => 1534008534,
+      1 => 1534022016,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f1cd87ffa64_95633536 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f51832b23f9_20234512 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?><!DOCTYPE html>
 <html>
@@ -50,7 +50,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
                     <h1>Listado de Publicaciones</h1>
                 </div>
                 <div class="col-4 text-md-right my-auto">
-                    <a href="newPub.php" name="btnAddPub" id="btnAddPub" class="btn indigo darken-4 btn-sm m-0">Nueva Publicación</a>
+                    <a href="adminPubNew.php" name="btnAddPub" id="btnAddPub" class="btn indigo darken-4 btn-sm m-0 nohover">Nueva Publicación</a>
                 </div>
                 <br>
             </div>
@@ -88,12 +88,12 @@ foreach ($_from as $_smarty_tpl->tpl_vars['pub']->value) {
  <?php echo $_smarty_tpl->tpl_vars['pub']->value['apellido'];?>
 </td>
                             <td>
-                                <form method="GET" action="post.php">
+                                <form method="GET" action="adminPubDel.php">
                                   <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['pub']->value['publicacion_id'];?>
 " hidden>
-                                  <input type="submit" name="Borrar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnDeletePub" value="Borrar">
+                                  <input type="submit" name="Eliminar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnDeletePub" value="Eliminar">
                                 </form>
-                                <form method="GET" action="post.php">
+                                <form method="GET" action="adminPubMod.php">
                                   <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['pub']->value['publicacion_id'];?>
 " hidden>
                                    <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnModifPub" value="Modificar">

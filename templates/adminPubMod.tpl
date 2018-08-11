@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Nueva Publicación</title>
+        <title>Modificación de Publicación</title>
         <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -28,18 +28,25 @@
                         <!-- Card body -->
                         <div class="card-body">
                             <!--Form-->
-                            <form enctype="multipart/form-data" method="POST" action="addPub.php">
+                            <form enctype="multipart/form-data" method="POST" action="adminPubUpdate.php">
                                 <!--Titulo pagina-->
-                                <p class="h4 text-center py-4">Nueva Publicación</p>
+                                <p class="h4 text-center py-4">Modificación de Publicación</p>
+                                <!-- ID publicacion-->
+                                <input type="text" id="id" name="id" class="form-control mb-4" value="{$pub['publicacion_id']}" hidden>
                                 <!-- Titulo Publicacion -->
-                                <input type="text" id="titlePub" name="titlePub" class="form-control mb-4" placeholder="Título" required>
+                                <input type="text" id="titlePub" name="titlePub" class="form-control mb-4" placeholder="Título" value="{$pub['titulo']}" required>
                                 <div class="row border rounded mx-1 py-2">
                                     <!--Tipo-->
                                     <label class="font-weight-light ml-3">Tipo</label>
                                     <select name="type" id="type" class="browser-default ml-3" required>
                                         <option value="" disabled selected>Seleccionar una opción</option>
                                         {foreach from=$types item=$type}
-                                            <option value="{$type['tipo_id']}">{$type['nombreTipo']}</option>
+                                            <option value="{$type['tipo_id']}"
+                                                {if {$type['tipo_id']} == {$pub['tipo_id']}}
+                                                    selected
+                                                {/if}>
+                                                {$type['nombreTipo']}
+                                            </option>
                                         {/foreach}}
                                     </select>
                                 </div>
@@ -50,7 +57,12 @@
                                     <select name="cat" id="cat" class="browser-default ml-3" required>
                                         <option value="" disabled selected>Seleccionar una opción</option>
                                         {foreach from=$cats item=$cat}
-                                            <option value="{$cat['categoria_id']}">{$cat['nombreCat']}</option>
+                                            <option value="{$cat['categoria_id']}"
+                                                {if {$cat['categoria_id']} == {$pub['categoria_id']}}
+                                                    selected
+                                                {/if}>
+                                                {$cat['nombreCat']}
+                                            </option>
                                         {/foreach}}
                                     </select>
                                 </div>
@@ -61,16 +73,19 @@
                                         <label for="pictureInput" class="font-weight-light">Foto de la publicación</label>
                                     </div>
                                     <div class="col-6">
-                                        <input type="file" accept="image/*" name="pictureInput" id="pictureInput" required>
+                                        <input type="file" accept="image/*" name="pictureInput" id="pictureInput">
+                                    </div>
+                                    <div class="row">
+                                        <img src="img/{$pub['imagen']}" width="100px" class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
                                     </div>
                                 </div>
                                 <br>
                                 <!--Cuerpo de la publicacion-->
-                                <textarea type="text" id="bodyTest" name="bodyTest" class="md-textarea form-control" rows="10" placeholder="Cuerpo de la publicación" required></textarea>
+                                <textarea type="text" id="bodyTest" name="bodyTest" class="md-textarea form-control" rows="10" placeholder="Cuerpo de la publicación" required>{$pub['texto']}</textarea>
 
                                 <div class="text-center py-4 mt-3">
-                                    <button class="btn indigo darken-4 btn-sm m-0" type="cancel">Cancelar</button>
-                                    <button class="btn indigo darken-4 btn-sm m-0" type="submit">Registrarse</button>
+                                    <a class="btn indigo darken-4 btn-sm m-0 nohover" href="adminPub.php">Cancelar</a>
+                                    <button class="btn indigo darken-4 btn-sm m-0" type="submit">Modificar</button>
                                 </div>
                             </form>
                         </div>

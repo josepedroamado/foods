@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 17:18:13
+/* Smarty version 3.1.32, created on 2018-08-11 19:38:36
   from '/var/www/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f1a55343939_24027621',
+  'unifunc' => 'content_5b6f3b3ca20083_03737846',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '286e41dd2c3e04c2d0efd05cb44c5af70eb8f2aa' => 
     array (
       0 => '/var/www/templates/index.tpl',
-      1 => 1534007885,
+      1 => 1534016314,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f1a55343939_24027621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f3b3ca20083_03737846 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?><!DOCTYPE html>
 <html>
@@ -50,7 +50,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
             <!-- Section: Blog v.3 -->
             <section class="mx-5 px-5 pt-1 shadow white">
               <!-- Section heading -->
-              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a></h2>
+              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a><hr></h2>
               
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['recipies']->value, 'recipie');
@@ -119,7 +119,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <!-- Section: Blog v.3 -->
             <section class="mx-5 px-5 pt-1 shadow white">
               <!-- Section heading -->
-              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Notas</a></h2>
+              <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Notas</a><hr></h2>
 
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['notes']->value, 'note');
