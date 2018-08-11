@@ -2,34 +2,33 @@
 session_start();
 
 //Include library
-require_once('includes/smartyAndNavbar.php');
 require_once('includes/connectDB.php');
 
-if($_SESSION['admin'] == 1){
-	//Consulto por publicaciones
-	if ($conn) {
-		$sql = "SELECT publicaciones.*, categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido, 		tipos.nombreTipo
-				FROM publicaciones, categorias, usuarios, tipos
-				WHERE publicaciones.publicacion_id = usuarios.usuario_id AND publicaciones.tipo_id = tipos.tipo_id AND publicaciones.categoria_id = categorias.categoria_id
-				ORDER BY fecha ASC";
-		$parametros = array();
-		$result = $conn->consulta($sql, $parametros);
-		if ($result) {
-			$pubs = $conn->restantesRegistros();
-			$smarty->assign("pubs", $pubs);
-		}
-		else{
-			echo "Error de consulta";
-		}
+$title = $_POST['titlePub'];
+$textBody = $_POST['bodyTest'];
+$photo = $_POST['pictureInput'];
+$cat = $_POST['cat'];
+$type = $_POST['type'];
+$user_id = $_SESSION['id'];
+
+if ($conn) {
+	$sql = "INSERT INTO publicaciones(titulo, texto, fecha, imagen, categoria_id, tipo_id, usuario_id) VALUES (:title, :textBody, now(), :photo, :cat, :type, :user_id)";
+	$parametros = array();
+	$parametros[0] = array("title", $title, "string");
+	$parametros[1] = array("textBody", $textBody, "string");
+	$parametros[2] = array("photo", $photo, "string");
+	$parametros[3] = array("cat", $cat, "int");
+	$parametros[4] = array("type", $type, "int");
+	$parametros[5] = array("user_id", $user_id, "int");
+	$result = $conn->consulta($sql, $parametros);
+	if ($result) {
+		header('Location: adminPub.php');
 	}
 	else{
-		echo "Error de conexión: " . $conn->ultimoError();
+		echo "Error de consulta" . $conn->ultimoError();
 	}
-    //Send result to client
-	$smarty->display('addPub.tpl');
 }
 else{
-	$_SESSION['error'] = "Debe ingresar como administrador para acceder al menu de Administración del Blog.";
-    header("Location: login.php");
+	echo "Error de conexión: " . $conn->ultimoError();
 }
 ?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-06 16:52:49
+/* Smarty version 3.1.32, created on 2018-08-11 15:59:49
   from '/var/www/templates/adminPub.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b687ce12ff286_68368625',
+  'unifunc' => 'content_5b6f07f57c97b5_12917785',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9d676ca5c0953d04abedefd1d5386b15097f498e' => 
     array (
       0 => '/var/www/templates/adminPub.tpl',
-      1 => 1533574359,
+      1 => 1534003187,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b687ce12ff286_68368625 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f07f57c97b5_12917785 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Administración de Publicaciones</title>
+        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -49,7 +50,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
                     <h1>Listado de Publicaciones</h1>
                 </div>
                 <div class="col-4 text-md-right my-auto">
-                    <input type="button" name="btnAddPub" id="btnAddPub" value="Nueva Publicación" class="btn indigo darken-4 btn-sm m-0">
+                    <a href="newPub.php" name="btnAddPub" id="btnAddPub" class="btn indigo darken-4 btn-sm m-0">Nueva Publicación</a>
                 </div>
                 <br>
             </div>

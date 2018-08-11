@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-05 23:34:03
+/* Smarty version 3.1.32, created on 2018-08-11 15:58:49
   from '/var/www/templates/login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b67896bbd3a97_40884831',
+  'unifunc' => 'content_5b6f07b98b1212_46146470',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3c0fd159aeaf4b3e5afcb82773085dbb1815e2d4' => 
     array (
       0 => '/var/www/templates/login.tpl',
-      1 => 1533512042,
+      1 => 1534002937,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b67896bbd3a97_40884831 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f07b98b1212_46146470 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Iniciar Sesión en el Blog</title>
+        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 

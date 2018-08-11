@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-06 16:54:51
+/* Smarty version 3.1.32, created on 2018-08-11 15:56:29
   from '/var/www/templates/adminCat.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b687d5bc287e9_03403807',
+  'unifunc' => 'content_5b6f072db6f3e3_65522485',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0071fc4212cfc5e5917c79fe2174e3385a36ac49' => 
     array (
       0 => '/var/www/templates/adminCat.tpl',
-      1 => 1533574488,
+      1 => 1534002905,
       2 => 'file',
     ),
   ),
@@ -21,12 +21,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b687d5bc287e9_03403807 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f072db6f3e3_65522485 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Administración de Usuarios</title>
+        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 

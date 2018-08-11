@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Administración de Publicaciones</title>
+        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -23,7 +24,7 @@
                     <h1>Listado de Publicaciones</h1>
                 </div>
                 <div class="col-4 text-md-right my-auto">
-                    <input type="button" name="btnAddPub" id="btnAddPub" value="Nueva Publicación" class="btn indigo darken-4 btn-sm m-0">
+                    <a href="newPub.php" name="btnAddPub" id="btnAddPub" class="btn indigo darken-4 btn-sm m-0">Nueva Publicación</a>
                 </div>
                 <br>
             </div>

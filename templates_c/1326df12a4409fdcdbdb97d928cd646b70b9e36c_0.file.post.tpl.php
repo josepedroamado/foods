@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-06 19:46:55
+/* Smarty version 3.1.32, created on 2018-08-10 17:47:42
   from '/var/www/templates/post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b68a5af144222_70796882',
+  'unifunc' => 'content_5b6dcfbe669847_88418253',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1326df12a4409fdcdbdb97d928cd646b70b9e36c' => 
     array (
       0 => '/var/www/templates/post.tpl',
-      1 => 1533584813,
+      1 => 1533923225,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b68a5af144222_70796882 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6dcfbe669847_88418253 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?><!DOCTYPE html>
 <html>
@@ -29,6 +29,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
         <meta charset="UTF-8">
         <title><?php echo smarty_modifier_capitalize(mb_strtolower($_smarty_tpl->tpl_vars['post']->value['titulo'], 'UTF-8'));?>
 </title>
+        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
