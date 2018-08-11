@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 15:56:20
+/* Smarty version 3.1.32, created on 2018-08-11 17:20:00
   from '/var/www/templates/recipies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f0724cbdf49_95023724',
+  'unifunc' => 'content_5b6f1ac08aecf8_86874359',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3ef4b5659502559c0d820fb81e941d928c9d0bdc' => 
     array (
       0 => '/var/www/templates/recipies.tpl',
-      1 => 1534002957,
+      1 => 1534007989,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f0724cbdf49_95023724 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f1ac08aecf8_86874359 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Recetas</title>
-        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -51,7 +50,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
         <!-- Section: Recipies -->
           <div name = "lastRecipies" class="pt-5 mt-5 px-5 mx-5">
             <!-- Section: Blog v.3 -->
-            <section class="mx-5 px-5 pt-1 shadow blue-grey">
+            <section class="mx-5 px-5 pt-1 shadow blue-white">
               <!-- Section heading -->
               <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a></h2>
               

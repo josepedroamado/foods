@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-10 17:47:42
+/* Smarty version 3.1.32, created on 2018-08-11 17:02:46
   from '/var/www/templates/post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6dcfbe669847_88418253',
+  'unifunc' => 'content_5b6f16b688a049_45934452',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1326df12a4409fdcdbdb97d928cd646b70b9e36c' => 
     array (
       0 => '/var/www/templates/post.tpl',
-      1 => 1533923225,
+      1 => 1534002963,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6dcfbe669847_88418253 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f16b688a049_45934452 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?><!DOCTYPE html>
 <html>

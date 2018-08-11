@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Recetas</title>
-        <link rel="icon" type="image/ico" href="img/pizza.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -25,7 +24,7 @@
         <!-- Section: Recipies -->
           <div name = "lastRecipies" class="pt-5 mt-5 px-5 mx-5">
             <!-- Section: Blog v.3 -->
-            <section class="mx-5 px-5 pt-1 shadow blue-grey">
+            <section class="mx-5 px-5 pt-1 shadow blue-white">
               <!-- Section heading -->
               <h2 class="h1-responsive font-weight-bold text-center my-5"><a href="recipies.php">Últimas Publicaciones de Recetas</a></h2>
               

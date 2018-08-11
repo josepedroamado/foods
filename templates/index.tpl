@@ -32,8 +32,8 @@
                   <!-- Grid column -->
                   <div class="col-lg-5 col-xl-4">
                     <!-- Featured image -->
-                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                      <img class="img-fluid" src="img/{$recipie['imagen']}">
+                    <div class="">
+                      <img class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 img-fluid" src="img/{$recipie['imagen']}">
                       <a>
                         <div class="mask rgba-white-slight"></div>
                       </a>
@@ -86,8 +86,8 @@
                   <!-- Grid column -->
                   <div class="col-lg-5 col-xl-4">
                     <!-- Featured image -->
-                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                      <img class="img-fluid" src="img/{$note['imagen']}">
+                    <div class="">
+                      <img class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 img-fluid" src="img/{$note['imagen']}">
                       <a>
                         <div class="mask rgba-white-slight"></div>
                       </a>

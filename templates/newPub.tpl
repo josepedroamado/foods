@@ -28,7 +28,7 @@
                         <!-- Card body -->
                         <div class="card-body">
                             <!--Form-->
-                            <form method="POST" action="addPub.php">
+                            <form enctype="multipart/form-data" method="POST" action="addPub.php">
                                 <!--Titulo pagina-->
                                 <p class="h4 text-center py-4">Nueva Publicación</p>
                                 <!-- Titulo Publicacion -->

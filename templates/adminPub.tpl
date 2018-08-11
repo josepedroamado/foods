@@ -28,33 +28,41 @@
                 </div>
                 <br>
             </div>
-            <table class="table table-striped table-hover table-responsive-md btn-table shadow">
-                <tr class="indigo darken-4 white-text">
-                    <th scope="col">Título</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Categoría</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-                {foreach from=$pubs item=pub}
-                    <tr>
-                        <td>{$pub['titulo']|lower|capitalize}</td>
-                        <td>{$pub['texto']|truncate:150}</td>
-                        <td>{$pub['fecha']}</td>
-                        <td><img src="img/{$pub['imagen']}" width="100px"></td>
-                        <td>{$pub['nombreCat']}</td>
-                        <td>{$pub['nombreTipo']}</td>
-                        <td>{$pub['nombreUsr']} {$pub['apellido']}</td>
-                        <td>
-                            <input type="button" value="Borrar" class="btn indigo darken-4 btn-sm m-0 btnDeletePub" alt="{$pub['publicacion_id']}">
-                            <input type="button" value="Modificar" class="btn indigo darken-4 btn-sm m-0 btnModifPub" alt="{$pub['publicacion_id']}">
-                        </td>
+            <div class="row">
+                <table class="table table-striped table-hover table-responsive-md btn-table shadow">
+                    <tr class="indigo darken-4 white-text">
+                        <th scope="col">Título</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Acciones</th>
                     </tr>
-                {/foreach}
-            </table>       
+                    {foreach from=$pubs item=pub}
+                        <tr>
+                            <td>{$pub['titulo']|lower|capitalize}</td>
+                            <td>{$pub['texto']|truncate:150}</td>
+                            <td>{$pub['fecha']}</td>
+                            <td><img src="img/{$pub['imagen']}" width="100px" class="view overlay rounded z-depth-1-half mb-lg-0 mb-4"></td>
+                            <td>{$pub['nombreCat']}</td>
+                            <td>{$pub['nombreTipo']}</td>
+                            <td>{$pub['nombreUsr']} {$pub['apellido']}</td>
+                            <td>
+                                <form method="GET" action="post.php">
+                                  <input type="text" id="id" name="id" class="form-control" value="{$pub['publicacion_id']}" hidden>
+                                  <input type="submit" name="Borrar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnDeletePub" value="Borrar">
+                                </form>
+                                <form method="GET" action="post.php">
+                                  <input type="text" id="id" name="id" class="form-control" value="{$pub['publicacion_id']}" hidden>
+                                   <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnModifPub" value="Modificar">
+                                </form>
+                            </td>
+                        </tr>
+                    {/foreach}
+                </table>       
+            </div>
         </div>
 
         <!-- SCRIPTS -->

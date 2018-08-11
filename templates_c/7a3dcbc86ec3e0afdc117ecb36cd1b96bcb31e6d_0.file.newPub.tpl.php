@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 16:05:17
+/* Smarty version 3.1.32, created on 2018-08-11 16:24:30
   from '/var/www/templates/newPub.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f093d7d8ed1_36754296',
+  'unifunc' => 'content_5b6f0dbe065081_39050847',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7a3dcbc86ec3e0afdc117ecb36cd1b96bcb31e6d' => 
     array (
       0 => '/var/www/templates/newPub.tpl',
-      1 => 1534003515,
+      1 => 1534004158,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f093d7d8ed1_36754296 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f0dbe065081_39050847 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -53,7 +53,7 @@ function content_5b6f093d7d8ed1_36754296 (Smarty_Internal_Template $_smarty_tpl)
                         <!-- Card body -->
                         <div class="card-body">
                             <!--Form-->
-                            <form method="POST" action="addPub.php">
+                            <form enctype="multipart/form-data" method="POST" action="addPub.php">
                                 <!--Titulo pagina-->
                                 <p class="h4 text-center py-4">Nueva Publicación</p>
                                 <!-- Titulo Publicacion -->

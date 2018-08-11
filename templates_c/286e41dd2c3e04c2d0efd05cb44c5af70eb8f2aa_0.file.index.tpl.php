@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 15:56:17
+/* Smarty version 3.1.32, created on 2018-08-11 17:18:13
   from '/var/www/templates/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f0721a94770_40038361',
+  'unifunc' => 'content_5b6f1a55343939_24027621',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '286e41dd2c3e04c2d0efd05cb44c5af70eb8f2aa' => 
     array (
       0 => '/var/www/templates/index.tpl',
-      1 => 1534002931,
+      1 => 1534007885,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f0721a94770_40038361 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b6f1a55343939_24027621 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 ?><!DOCTYPE html>
 <html>
@@ -62,8 +62,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['recipie']->value) {
                   <!-- Grid column -->
                   <div class="col-lg-5 col-xl-4">
                     <!-- Featured image -->
-                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                      <img class="img-fluid" src="img/<?php echo $_smarty_tpl->tpl_vars['recipie']->value['imagen'];?>
+                    <div class="">
+                      <img class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 img-fluid" src="img/<?php echo $_smarty_tpl->tpl_vars['recipie']->value['imagen'];?>
 ">
                       <a>
                         <div class="mask rgba-white-slight"></div>
@@ -131,8 +131,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['note']->value) {
                   <!-- Grid column -->
                   <div class="col-lg-5 col-xl-4">
                     <!-- Featured image -->
-                    <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                      <img class="img-fluid" src="img/<?php echo $_smarty_tpl->tpl_vars['note']->value['imagen'];?>
+                    <div class="">
+                      <img class="view overlay rounded z-depth-1-half mb-lg-0 mb-4 img-fluid" src="img/<?php echo $_smarty_tpl->tpl_vars['note']->value['imagen'];?>
 ">
                       <a>
                         <div class="mask rgba-white-slight"></div>
