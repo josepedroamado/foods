@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 21:48:25
+/* Smarty version 3.1.32, created on 2018-08-12 23:05:54
   from '/var/www/templates/adminUsr.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b70ab290cc0e2_16065870',
+  'unifunc' => 'content_5b70bd52068156_01791973',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc6ea38f90f41dc1a90bda7b8511b11ef6420cdf' => 
     array (
       0 => '/var/www/templates/adminUsr.tpl',
-      1 => 1534110494,
+      1 => 1534115152,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b70ab290cc0e2_16065870 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b70bd52068156_01791973 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -39,6 +39,15 @@ function content_5b70ab290cc0e2_16065870 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
+
+        <!-- JQuery -->
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
+        <!-- JQuery -->
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/adminUsr.js"><?php echo '</script'; ?>
+>
     </head>
     <body class="bg grey lighten-3">
         <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -63,52 +72,23 @@ function content_5b70ab290cc0e2_16065870 (Smarty_Internal_Template $_smarty_tpl)
                         <th scope="col">Administrador</th>
                         <th scope="col">Acciones</th>
                     </tr>
-                    <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['usrs']->value, 'usr');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['usr']->value) {
-?>
-                        <tr>
-                            <td><?php echo $_smarty_tpl->tpl_vars['usr']->value['nombreUsr'];?>
-</td>
-                            <td><?php echo $_smarty_tpl->tpl_vars['usr']->value['apellido'];?>
-</td>
-                            <td><?php echo $_smarty_tpl->tpl_vars['usr']->value['email'];?>
-</td>
-                            <td>
-                                <?php if ($_smarty_tpl->tpl_vars['usr']->value['administrador'] == 1) {?>
-                                    Si
-                                <?php } else { ?>
-                                    No
-                                <?php }?>
-                            </td>
-                            <td>
-                                <form method="GET" action="adminUsrDel.php">
-                                    <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['usr']->value['usuario_id'];?>
-" hidden>
-                                    <input type="submit" name="Eliminar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0" value="Eliminar">
-                                </form>
+                    <tbody id="usrTableBody">
+                    </tbody>
 
-                                <form method="GET" action="adminUsrMod.php">
-                                    <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['usr']->value['usuario_id'];?>
-" hidden>
-                                    <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0" value="Modificar">
-                                </form>
-                            </td>
-                        </tr>
-                    <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                </table>       
+                                    </table> 
+
+                <!--Pagination-->
+                <div class="row container justify-content-center my-auto">
+                    <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnFirst' alt='1' value='<<'>
+                    <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnPrev' alt='' value='<'>
+                    <span id="currentPage" class="mt-2">0</span><span class="mt-2"> / </span><span id="lastPage" class="mt-2">0</span>
+                    <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnNext' alt='' value='>'>
+                    <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnLast' alt='' value='>>'>
+                </div>  
             </div>
         </section>
 
         <!-- SCRIPTS -->
-        <!-- JQuery -->
-        <?php echo '<script'; ?>
- type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
->
         <!-- Bootstrap tooltips -->
         <?php echo '<script'; ?>
  type="text/javascript" src="js/popper.min.js"><?php echo '</script'; ?>

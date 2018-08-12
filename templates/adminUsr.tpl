@@ -15,6 +15,11 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <!-- JQuery -->
+        <script type="text/javascript" src="js/adminUsr.js"></script>
     </head>
     <body class="bg grey lighten-3">
         {include file="navbar.tpl"}
@@ -38,7 +43,10 @@
                         <th scope="col">Administrador</th>
                         <th scope="col">Acciones</th>
                     </tr>
-                    {foreach from=$usrs item=usr}
+                    <tbody id="usrTableBody">
+                    </tbody>
+
+                    {* {foreach from=$usrs item=usr}
                         <tr>
                             <td>{$usr['nombreUsr']}</td>
                             <td>{$usr['apellido']}</td>
@@ -62,14 +70,21 @@
                                 </form>
                             </td>
                         </tr>
-                    {/foreach}
-                </table>       
+                    {/foreach} *}
+                </table> 
+
+                <!--Pagination-->
+                <div class="row container justify-content-center my-auto">
+                    <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnFirst' alt='1' value='<<'>
+                    <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnPrev' alt='' value='<'>
+                    <span id="currentPage" class="mt-2">0</span><span class="mt-2"> / </span><span id="lastPage" class="mt-2">0</span>
+                    <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnNext' alt='' value='>'>
+                    <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnLast' alt='' value='>>'>
+                </div>  
             </div>
         </section>
 
         <!-- SCRIPTS -->
-        <!-- JQuery -->
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->

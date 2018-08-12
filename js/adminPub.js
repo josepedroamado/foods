@@ -10,7 +10,7 @@ function inicializo(){
     $("#btnSig").click(cambioPagina);
     $("#btnUlt").click(cambioPagina);
     //Cargo la primer página
-    traigoAutores(1);
+    getUsers(1);
     //Llamo cada 1 segundo a traigoFecha
     //window.setInterval(traigoFechaHora,1000);
 }
@@ -53,29 +53,28 @@ function respuestaFechaHora(data){
     $("#fechaHora").html(data);
 }
 
-function traigoAutores(pPagina){
-    var filtro = $("#filtro").val();
+function getUsers(pPagina){
     pagina = parseInt(pPagina);
     $.ajax({
-        url: "traigoAutores.php",
+        url: "adminUsrGet.php",
         dataType: "JSON",
         type: "POST",
-        data: "pagina=" + pPagina + "&filtro=" + filtro,
-        success: procesoRespuestaAutores
+        data: "pagina=" + pPagina,
+        success: loadUsers
         
     });
 }
 
-function procesoRespuestaAutores(datos){
-    var autores, tabla="", tmpAutor;
+function loadUsers(datos){
+    var usrs, tabla="", tmpUsr;
     if(datos["status"]=="OK"){
         //proceso los datos y muestro en la tabla
-        autores = datos["data"];
-        for(pos = 0; pos<=autores.length-1; pos++){
-            tmpAutor = autores[pos];
+        usrs = datos["data"];
+        for(pos = 0; pos<=usrs.length-1; pos++){
+            tmpUsr = usrs[pos];
             tabla = tabla + "<tr>";
-            tabla = tabla + "<td>" + tmpAutor['nombre'] + "</td>";
-            tabla = tabla + "<td>" + tmpAutor['especialidad'] + "</td>";
+            tabla = tabla + "<td>" + tmpUsr['nombreUsr'] + "</td>";
+            tabla = tabla + "<td>" + tmpUsr['apellido'] + "</td>";
             tabla = tabla + "<td><img src='fotosautores/" + tmpAutor['foto'] + "' width='30px'/></td>";
             tabla = tabla + "<td>";
             tabla = tabla + "<input type='button' class='btnModificar' value='Modificar' alt='" + tmpAutor['id'] + "'/>";
@@ -83,7 +82,7 @@ function procesoRespuestaAutores(datos){
             tabla = tabla + "</td>";
             tabla = tabla + "</tr>";
         }
-        $("#cuerpoTabla").html(tabla);
+        $("#usrTableBody").html(tabla);
         $(".btnBorrar").click(borrarAutor);
         $(".btnModificar").click(modifAutor);
         $("#pagina").html(pagina);
