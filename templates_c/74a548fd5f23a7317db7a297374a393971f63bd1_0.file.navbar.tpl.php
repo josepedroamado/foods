@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 20:27:21
+/* Smarty version 3.1.32, created on 2018-08-12 19:49:08
   from '/var/www/templates/navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f46a98a56d5_10795275',
+  'unifunc' => 'content_5b708f34b06762_78739897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '74a548fd5f23a7317db7a297374a393971f63bd1' => 
     array (
       0 => '/var/www/templates/navbar.tpl',
-      1 => 1534019237,
+      1 => 1534091567,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b6f46a98a56d5_10795275 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b708f34b06762_78739897 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--Navbar-->
 <nav class="mb-1 navbar fixed-top scrolling-navbar navbar-expand-lg navbar-dark primary-color indigo darken-4">
     <a class="navbar-brand font-weight-bold ml-5" href="index.php">Blog Cocina</a>
@@ -35,10 +35,7 @@ function content_5b6f46a98a56d5_10795275 (Smarty_Internal_Template $_smarty_tpl)
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-effect waves-light" href="recipies.php">Recetas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect waves-light" href="notes.php">Notas</a>
+                <a class="nav-link waves-effect waves-light" href="publications.php">Publicaciones</a>
             </li>
             <?php if ($_smarty_tpl->tpl_vars['logged']->value) {?>
                 <li class="nav-item">
@@ -48,7 +45,7 @@ function content_5b6f46a98a56d5_10795275 (Smarty_Internal_Template $_smarty_tpl)
             <?php if ($_smarty_tpl->tpl_vars['admin']->value) {?>
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="admin.php" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="adminCat.php">Categorias</a>
                         <a class="dropdown-item" href="adminPub.php">Publicaciones</a>
@@ -60,7 +57,8 @@ function content_5b6f46a98a56d5_10795275 (Smarty_Internal_Template $_smarty_tpl)
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <a class="nav-link dropdown-toggle waves-effect waves-light"
+                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <i class="fa fa-user"></i>
                     <?php if ($_smarty_tpl->tpl_vars['logged']->value) {?>
                         <?php echo $_smarty_tpl->tpl_vars['fullName']->value;?>
@@ -80,6 +78,8 @@ function content_5b6f46a98a56d5_10795275 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </li>
         </ul>
+        <!-- Filter -->
+        <!-- Default unchecked -->
     </div>
 </nav>
 <!--/.Navbar--><?php }

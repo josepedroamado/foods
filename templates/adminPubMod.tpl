@@ -16,85 +16,88 @@
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg grey lighten-3">
         {include file="navbar.tpl"}
         <!--  Form  -->
-        <div class="container pt-5 my-2">
-            <!--Row-->
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="card mx-xl-5">
-                        <!-- Card body -->
-                        <div class="card-body">
-                            <!--Form-->
-                            <form enctype="multipart/form-data" method="POST" action="adminPubUpdate.php">
-                                <!--Titulo pagina-->
-                                <p class="h4 text-center py-4">Modificación de Publicación</p>
-                                <!-- ID publicacion-->
-                                <input type="text" id="id" name="id" class="form-control mb-4" value="{$pub['publicacion_id']}" hidden>
-                                <!-- Titulo Publicacion -->
-                                <input type="text" id="titlePub" name="titlePub" class="form-control mb-4" placeholder="Título" value="{$pub['titulo']}" required>
-                                <div class="row border rounded mx-1 py-2">
-                                    <!--Tipo-->
-                                    <label class="font-weight-light ml-3">Tipo</label>
-                                    <select name="type" id="type" class="browser-default ml-3" required>
-                                        <option value="" disabled selected>Seleccionar una opción</option>
-                                        {foreach from=$types item=$type}
-                                            <option value="{$type['tipo_id']}"
-                                                {if {$type['tipo_id']} == {$pub['tipo_id']}}
-                                                    selected
-                                                {/if}>
-                                                {$type['nombreTipo']}
-                                            </option>
-                                        {/foreach}}
-                                    </select>
-                                </div>
-                                <br>
-                                <div class="row border rounded mx-1 py-2">
-                                    <!--Categoria-->
-                                    <label class="font-weight-light ml-3">Categoría</label>
-                                    <select name="cat" id="cat" class="browser-default ml-3" required>
-                                        <option value="" disabled selected>Seleccionar una opción</option>
-                                        {foreach from=$cats item=$cat}
-                                            <option value="{$cat['categoria_id']}"
-                                                {if {$cat['categoria_id']} == {$pub['categoria_id']}}
-                                                    selected
-                                                {/if}>
-                                                {$cat['nombreCat']}
-                                            </option>
-                                        {/foreach}}
-                                    </select>
-                                </div>
-                                <br>
-                                <div class="row border rounded mx-1 py-2">
-                                    <!--Input Foto-->
-                                    <div class="col-4">
-                                        <label for="pictureInput" class="font-weight-light">Foto de la publicación</label>
+        <section class="pt-5 mt-1 px-5 mx-5">
+            <div class="container pt-5 my-2">
+                <!--Row-->
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="card mx-xl-5">
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <!--Form-->
+                                <form enctype="multipart/form-data" method="POST" action="adminPubUpdate.php">
+                                    <!--Titulo pagina-->
+                                    <h2 class="h1-responsive font-weight-bold text-left my-0">Modificación de Publicación</h2>
+                                    <hr>
+                                    <!-- ID publicacion-->
+                                    <input type="text" id="id" name="id" class="form-control mb-4" value="{$pub['publicacion_id']}" hidden>
+                                    <!-- Titulo Publicacion -->
+                                    <input type="text" id="titlePub" name="titlePub" class="form-control mb-4" placeholder="Título" value="{$pub['titulo']}" required>
+                                    <div class="row border rounded mx-1 py-2">
+                                        <!--Tipo-->
+                                        <label class="font-weight-light ml-3">Tipo</label>
+                                        <select name="type" id="type" class="browser-default ml-3" required>
+                                            <option value="" disabled selected>Seleccionar una opción</option>
+                                            {foreach from=$types item=$type}
+                                                <option value="{$type['tipo_id']}"
+                                                    {if {$type['tipo_id']} == {$pub['tipo_id']}}
+                                                        selected
+                                                    {/if}>
+                                                    {$type['nombreTipo']}
+                                                </option>
+                                            {/foreach}}
+                                        </select>
                                     </div>
-                                    <div class="col-6">
-                                        <input type="file" accept="image/*" name="pictureInput" id="pictureInput">
+                                    <br>
+                                    <div class="row border rounded mx-1 py-2">
+                                        <!--Categoria-->
+                                        <label class="font-weight-light ml-3">Categoría</label>
+                                        <select name="cat" id="cat" class="browser-default ml-3" required>
+                                            <option value="" disabled selected>Seleccionar una opción</option>
+                                            {foreach from=$cats item=$cat}
+                                                <option value="{$cat['categoria_id']}"
+                                                    {if {$cat['categoria_id']} == {$pub['categoria_id']}}
+                                                        selected
+                                                    {/if}>
+                                                    {$cat['nombreCat']}
+                                                </option>
+                                            {/foreach}}
+                                        </select>
                                     </div>
-                                    <div class="row">
-                                        <img src="img/{$pub['imagen']}" width="100px" class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                                    <br>
+                                    <div class="row border rounded mx-1 py-2">
+                                        <!--Input Foto-->
+                                        <div class="col-4">
+                                            <label for="pictureInput" class="font-weight-light">Foto de la publicación</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="file" accept="image/*" name="pictureInput" id="pictureInput">
+                                        </div>
+                                        <div class="row">
+                                            <img src="img/{$pub['imagen']}" width="100px" class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+                                        </div>
                                     </div>
-                                </div>
-                                <br>
-                                <!--Cuerpo de la publicacion-->
-                                <textarea type="text" id="bodyTest" name="bodyTest" class="md-textarea form-control" rows="10" placeholder="Cuerpo de la publicación" required>{$pub['texto']}</textarea>
+                                    <br>
+                                    <!--Cuerpo de la publicacion-->
+                                    <textarea type="text" id="bodyTest" name="bodyTest" class="md-textarea form-control" rows="10" placeholder="Cuerpo de la publicación" required>{$pub['texto']}</textarea>
 
-                                <div class="text-center py-4 mt-3">
-                                    <a class="btn indigo darken-4 btn-sm m-0 nohover" href="adminPub.php">Cancelar</a>
-                                    <button class="btn indigo darken-4 btn-sm m-0" type="submit">Modificar</button>
-                                </div>
-                            </form>
+                                    <div class="text-center py-4 mt-3">
+                                        <a class="btn indigo darken-4 btn-sm m-0 nohover" href="adminPub.php">Cancelar</a>
+                                        <button class="btn indigo darken-4 btn-sm m-0" type="submit">Modificar</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Card body -->
                         </div>
-                        <!-- Card body -->
                     </div>
+                    <div class="col-md-2"></div>
                 </div>
-                <div class="col-md-2"></div>
             </div>
-        </div>
+        </section>
         <!-- Form -->
 
         <!-- SCRIPTS -->

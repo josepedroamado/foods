@@ -16,12 +16,17 @@
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg grey lighten-3">
         {include file="navbar.tpl"}
 
-        <div class="pt-5 my-5">
-            <h1>Favoritos</h1>
-        </div>
+        <section class="pt-5 mt-1 px-5 mx-5">
+            <div class="container pt-4 my-5 px-4 shadow white">
+                <div class="pl-1">
+                    <h2 class="h1-responsive font-weight-bold text-left my-0">Favoritos</h2>
+                </div>
+                <hr>
+            </div>
+        </section>
 
         <!-- SCRIPTS -->
         <!-- JQuery -->

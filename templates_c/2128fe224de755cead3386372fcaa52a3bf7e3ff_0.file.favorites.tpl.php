@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 15:56:27
+/* Smarty version 3.1.32, created on 2018-08-12 21:52:49
   from '/var/www/templates/favorites.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f072b3e24d6_96396756',
+  'unifunc' => 'content_5b70ac31c3be38_65369487',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2128fe224de755cead3386372fcaa52a3bf7e3ff' => 
     array (
       0 => '/var/www/templates/favorites.tpl',
-      1 => 1534002926,
+      1 => 1534110768,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f072b3e24d6_96396756 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b70ac31c3be38_65369487 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -40,13 +40,18 @@ function content_5b6f072b3e24d6_96396756 (Smarty_Internal_Template $_smarty_tpl)
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="bg grey lighten-3">
         <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-        <div class="pt-5 my-5">
-            <h1>Favoritos</h1>
-        </div>
+        <section class="pt-5 mt-1 px-5 mx-5">
+            <div class="container pt-4 my-5 px-4 shadow white">
+                <div class="pl-1">
+                    <h2 class="h1-responsive font-weight-bold text-left my-0">Favoritos</h2>
+                </div>
+                <hr>
+            </div>
+        </section>
 
         <!-- SCRIPTS -->
         <!-- JQuery -->

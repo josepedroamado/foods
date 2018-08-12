@@ -12,10 +12,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-effect waves-light" href="recipies.php">Recetas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect waves-light" href="notes.php">Notas</a>
+                <a class="nav-link waves-effect waves-light" href="publications.php">Publicaciones</a>
             </li>
             {if $logged}
                 <li class="nav-item">
@@ -25,7 +22,7 @@
             {if $admin}
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="admin.php" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="adminCat.php">Categorias</a>
                         <a class="dropdown-item" href="adminPub.php">Publicaciones</a>
@@ -37,7 +34,8 @@
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <a class="nav-link dropdown-toggle waves-effect waves-light"
+                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <i class="fa fa-user"></i>
                     {if $logged}
                         {$fullName}
@@ -56,6 +54,8 @@
                 </div>
             </li>
         </ul>
+        <!-- Filter -->
+        <!-- Default unchecked -->
     </div>
 </nav>
 <!--/.Navbar-->

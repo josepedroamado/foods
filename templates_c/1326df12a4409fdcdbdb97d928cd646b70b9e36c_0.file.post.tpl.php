@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-11 17:02:46
+/* Smarty version 3.1.32, created on 2018-08-12 20:16:25
   from '/var/www/templates/post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b6f16b688a049_45934452',
+  'unifunc' => 'content_5b709599f31157_19240680',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1326df12a4409fdcdbdb97d928cd646b70b9e36c' => 
     array (
       0 => '/var/www/templates/post.tpl',
-      1 => 1534002963,
+      1 => 1534090886,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b6f16b688a049_45934452 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b709599f31157_19240680 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?><!DOCTYPE html>
 <html>
@@ -70,8 +70,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
                   <h3 class="font-weight-bold mb-3"><strong><?php echo smarty_modifier_capitalize(mb_strtolower($_smarty_tpl->tpl_vars['post']->value['titulo'], 'UTF-8'));?>
 </strong></h3>
                   <!-- Featured image -->
-                  <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                    <img class="img-fluid" src="img/<?php echo $_smarty_tpl->tpl_vars['post']->value['imagen'];?>
+                  <div class="">
+                    <img class="img-fluid view overlay rounded z-depth-1-half mb-lg-0 mb-4" src="img/<?php echo $_smarty_tpl->tpl_vars['post']->value['imagen'];?>
 ">
                     <a>
                       <div class="mask rgba-white-slight"></div>

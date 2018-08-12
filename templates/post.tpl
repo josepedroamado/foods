@@ -41,8 +41,8 @@
                   <!-- Post title -->
                   <h3 class="font-weight-bold mb-3"><strong>{$post['titulo']|lower|capitalize}</strong></h3>
                   <!-- Featured image -->
-                  <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                    <img class="img-fluid" src="img/{$post['imagen']}">
+                  <div class="">
+                    <img class="img-fluid view overlay rounded z-depth-1-half mb-lg-0 mb-4" src="img/{$post['imagen']}">
                     <a>
                       <div class="mask rgba-white-slight"></div>
                     </a>

@@ -6,4 +6,5 @@ define('DB', 'web');
 define('USER', 'root');
 define('PASSWORD', 'Echo2018');
 
+define("CANTXPAG",5);
 ?>

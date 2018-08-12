@@ -23,8 +23,12 @@ if($_SESSION['admin'] == 1){
 		echo "Error de conexión: " . $conn->ultimoError();
 	}
 
+	$smarty->assign("errorCat", $_SESSION['errorCat']);
+
     //Send result to client
 	$smarty->display('adminCat.tpl');
+
+	unset($_SESSION['errorCat']);
 }
 else{
 	$_SESSION['error'] = "Debe ingresar como administrador para acceder al menu de Administración del Blog.";
