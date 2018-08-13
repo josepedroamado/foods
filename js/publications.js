@@ -10,7 +10,6 @@ function busquedaFiltrada() {
     if (category != null) {
         alert(category);
     }
-    alert(type);
 }
 
 function ReinicarFiltro() {

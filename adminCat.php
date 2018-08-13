@@ -3,26 +3,8 @@ session_start();
 
 //Include library
 require_once('includes/smartyAndNavbar.php');
-require_once('includes/connectDB.php');
 
 if($_SESSION['admin'] == 1){
-	//Consulto por categorias
-	if ($conn) {
-		$sql = "SELECT * FROM categorias WHERE eliminado = 0";
-		$parametros = array();
-		$result = $conn->consulta($sql, $parametros);
-		if ($result) {
-			$cats = $conn->restantesRegistros();
-			$smarty->assign("cats", $cats);
-		}
-		else{
-			echo "Error de consulta";
-		}
-	}
-	else{
-		echo "Error de conexión: " . $conn->ultimoError();
-	}
-
 	$smarty->assign("errorCat", $_SESSION['errorCat']);
 
     //Send result to client

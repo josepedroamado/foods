@@ -31,23 +31,33 @@
 
                 <!-- Grid column -->
                 <div class="col-8 px-5 pt-5 shadow white">
-                  <!-- Category -->
-                  <a href="#!" class="pink-text">
-                    <h6 class="font-weight-bold mb-3">
-                      <i class="
-                        {if {$post['tipo_id']} == 1 }
-                            fa fa-cutlery
-                        {else}
-                            fa fa-sticky-note
-                        {/if}
-                            pr-2"> 
-                      </i>
-                      {$post['nombreTipo']} - 
-                      {$post['nombreCat']}
-                    </h6>
-                  </a>
+                  <div class="row">
+                    <div class="col-9 my-auto">
+                      <!-- Category -->
+                      <a href="#!" class="pink-text">
+                        <h6 class="font-weight-bold mb-3">
+                          <i class="
+                            {if {$post['tipo_id']} == 1 }
+                                fa fa-cutlery
+                            {else}
+                                fa fa-sticky-note
+                            {/if}
+                                pr-2"> 
+                          </i>
+                          {$post['nombreTipo']} - 
+                          {$post['nombreCat']}
+                        </h6>
+                      </a>
+                    </div>
+                    <div class="col-2">
+                      <form method='POST' action='favoriteAdd.php'>
+                        <input type='text' id='id' name='id' class='form-control' value="{$post['publicacion_id']}" hidden> 
+                        <input type='submit' class='btn btn-primary btn-md p-0' name='submit' value='Agregar a favoritos'>
+                      </form> 
+                    </div>
+                  </div>
                   <!-- Post title -->
-                  <h3 class="font-weight-bold mb-3"><strong>{$post['titulo']|lower|capitalize}</strong></h3>
+                  <h3 class="font-weight-bold mb-3 mt-2"><strong>{$post['titulo']|lower|capitalize}</strong></h3>
                   <!-- Featured image -->
                   <div class="">
                     <img class="img-fluid view overlay rounded z-depth-1-half mb-lg-0 mb-4" src="img/{$post['imagen']}">

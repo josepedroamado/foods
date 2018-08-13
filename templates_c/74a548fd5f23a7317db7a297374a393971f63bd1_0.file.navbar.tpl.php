@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 19:49:08
+/* Smarty version 3.1.32, created on 2018-08-13 06:02:54
   from '/var/www/templates/navbar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b708f34b06762_78739897',
+  'unifunc' => 'content_5b711f0e72e277_32081944',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b708f34b06762_78739897 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b711f0e72e277_32081944 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--Navbar-->
 <nav class="mb-1 navbar fixed-top scrolling-navbar navbar-expand-lg navbar-dark primary-color indigo darken-4">
     <a class="navbar-brand font-weight-bold ml-5" href="index.php">Blog Cocina</a>

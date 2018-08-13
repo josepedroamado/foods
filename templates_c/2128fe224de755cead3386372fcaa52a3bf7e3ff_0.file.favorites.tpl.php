@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 21:52:49
+/* Smarty version 3.1.32, created on 2018-08-13 06:23:16
   from '/var/www/templates/favorites.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b70ac31c3be38_65369487',
+  'unifunc' => 'content_5b7123d4250104_33395336',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2128fe224de755cead3386372fcaa52a3bf7e3ff' => 
     array (
       0 => '/var/www/templates/favorites.tpl',
-      1 => 1534110768,
+      1 => 1534140699,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b70ac31c3be38_65369487 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b7123d4250104_33395336 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -39,6 +39,14 @@ function content_5b70ac31c3be38_65369487 (Smarty_Internal_Template $_smarty_tpl)
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
+        <!-- JQuery -->
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
+        <!-- favorites -->
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/favorites.js"><?php echo '</script'; ?>
+>
     </head>
     <body class="bg grey lighten-3">
         <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -50,14 +58,21 @@ function content_5b70ac31c3be38_65369487 (Smarty_Internal_Template $_smarty_tpl)
                     <h2 class="h1-responsive font-weight-bold text-left my-0">Favoritos</h2>
                 </div>
                 <hr>
+                <div id="favoritos">
+                                    </div>
+                
+                <!--Pagination-->
+                <div class="row container justify-content-center my-auto">
+                    <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnFirst' alt='1' value='<<'>
+                    <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnPrev' alt='' value='<'>
+                    <span id="currentPage" class="mt-2">0</span><span class="mt-2"> / </span><span id="lastPage" class="mt-2">0</span>
+                    <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnNext' alt='' value='>'>
+                    <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnLast' alt='' value='>>'>
+                </div>  
             </div>
         </section>
 
         <!-- SCRIPTS -->
-        <!-- JQuery -->
-        <?php echo '<script'; ?>
- type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
->
         <!-- Bootstrap tooltips -->
         <?php echo '<script'; ?>
  type="text/javascript" src="js/popper.min.js"><?php echo '</script'; ?>
