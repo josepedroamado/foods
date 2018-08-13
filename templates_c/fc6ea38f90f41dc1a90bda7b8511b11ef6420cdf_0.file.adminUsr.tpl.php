@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 23:05:54
+/* Smarty version 3.1.32, created on 2018-08-12 23:36:43
   from '/var/www/templates/adminUsr.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b70bd52068156_01791973',
+  'unifunc' => 'content_5b70c48b8d22a6_65597961',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc6ea38f90f41dc1a90bda7b8511b11ef6420cdf' => 
     array (
       0 => '/var/www/templates/adminUsr.tpl',
-      1 => 1534115152,
+      1 => 1534116983,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b70bd52068156_01791973 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b70c48b8d22a6_65597961 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -72,7 +72,7 @@ function content_5b70bd52068156_01791973 (Smarty_Internal_Template $_smarty_tpl)
                         <th scope="col">Administrador</th>
                         <th scope="col">Acciones</th>
                     </tr>
-                    <tbody id="usrTableBody">
+                    <tbody id="tableBody">
                     </tbody>
 
                                     </table> 

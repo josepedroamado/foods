@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 21:48:45
+/* Smarty version 3.1.32, created on 2018-08-12 23:44:28
   from '/var/www/templates/adminPub.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b70ab3d6cb526_71084179',
+  'unifunc' => 'content_5b70c65c9e4881_37729871',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9d676ca5c0953d04abedefd1d5386b15097f498e' => 
     array (
       0 => '/var/www/templates/adminPub.tpl',
-      1 => 1534110523,
+      1 => 1534117466,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b70ab3d6cb526_71084179 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),1=>array('file'=>'/var/www/includes/libs/plugins/modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
+function content_5b70c65c9e4881_37729871 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -40,6 +39,15 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
+
+        <!-- JQuery -->
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
+        <!-- adminPubJS -->
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/adminPub.js"><?php echo '</script'; ?>
+>
     </head>
     <body class="bg grey lighten-3">
         <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -68,54 +76,25 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
                             <th scope="col">Usuario</th>
                             <th scope="col">Acciones</th>
                         </tr>
-                        <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['pubs']->value, 'pub');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['pub']->value) {
-?>
-                            <tr>
-                                <td><?php echo smarty_modifier_capitalize(mb_strtolower($_smarty_tpl->tpl_vars['pub']->value['titulo'], 'UTF-8'));?>
-</td>
-                                <td><?php echo smarty_modifier_truncate($_smarty_tpl->tpl_vars['pub']->value['texto'],150);?>
-</td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['pub']->value['fecha'];?>
-</td>
-                                <td><img src="img/<?php echo $_smarty_tpl->tpl_vars['pub']->value['imagen'];?>
-" width="100px" class="view overlay rounded z-depth-1-half mb-lg-0 mb-4"></td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['pub']->value['nombreCat'];?>
-</td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['pub']->value['nombreTipo'];?>
-</td>
-                                <td><?php echo $_smarty_tpl->tpl_vars['pub']->value['nombreUsr'];?>
- <?php echo $_smarty_tpl->tpl_vars['pub']->value['apellido'];?>
-</td>
-                                <td>
-                                    <form method="GET" action="adminPubDel.php">
-                                      <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['pub']->value['publicacion_id'];?>
-" hidden>
-                                      <input type="submit" name="Eliminar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnDeletePub" value="Eliminar">
-                                    </form>
-                                    <form method="GET" action="adminPubMod.php">
-                                      <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['pub']->value['publicacion_id'];?>
-" hidden>
-                                       <input type="submit" name="Modificar" class="py-1 my-1 btn indigo darken-4 btn-sm m-0 btnModifPub" value="Modificar">
-                                    </form>
-                                </td>
-                            </tr>
-                        <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-                    </table>       
+                        <tbody id="tableBody">
+                        </tbody>
+
+                                           </table>
+
+                    <!--Pagination-->
+                    <div class="row container justify-content-center my-auto">
+                        <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnFirst' alt='1' value='<<'>
+                        <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnPrev' alt='' value='<'>
+                        <span id="currentPage" class="mt-2">0</span><span class="mt-2"> / </span><span id="lastPage" class="mt-2">0</span>
+                        <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnNext' alt='' value='>'>
+                        <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnLast' alt='' value='>>'>
+                    </div>         
                 </div>
             </div>
         </section>
 
         <!-- SCRIPTS -->
-        <!-- JQuery -->
-        <?php echo '<script'; ?>
- type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
->
+        
         <!-- Bootstrap tooltips -->
         <?php echo '<script'; ?>
  type="text/javascript" src="js/popper.min.js"><?php echo '</script'; ?>
@@ -127,10 +106,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <!-- MDB core JavaScript -->
         <?php echo '<script'; ?>
  type="text/javascript" src="js/mdb.min.js"><?php echo '</script'; ?>
->
-        <!-- admin -->
-        <?php echo '<script'; ?>
- type="text/javascript" src="js/admin.js"><?php echo '</script'; ?>
 >
     </body>
 </html><?php }

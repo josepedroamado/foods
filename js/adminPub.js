@@ -3,103 +3,94 @@ $(document).ready(inicializo);
 var pagina=0;
 
 function inicializo(){
-    $("#btnAgregar").click(agregarAutor);
-    $("#btnFiltrar").click(aplicarFiltro);
-    $("#btnIni").click(cambioPagina);
-    $("#btnAnt").click(cambioPagina);
-    $("#btnSig").click(cambioPagina);
-    $("#btnUlt").click(cambioPagina);
+    $("#btnFirst").click(cambioPagina);
+    $("#btnPrev").click(cambioPagina);
+    $("#btnNext").click(cambioPagina);
+    $("#btnLast").click(cambioPagina);
     //Cargo la primer página
-    getUsers(1);
-    //Llamo cada 1 segundo a traigoFecha
-    //window.setInterval(traigoFechaHora,1000);
+    getPubs(1);
 }
 
-function agregarAutor(){
-    window.location = "altaAutor.php";
+function ucwords(str,force){
+  str=force ? str.toLowerCase() : str;  
+  return str.replace(/(\b)([a-zA-Z])/g,
+           function(firstLetter){
+              return   firstLetter.toUpperCase();
+           });
 }
 
-function borrarAutor(){
-    var id = $(this).attr("alt");
-    if(confirm("Elimina Autor?")){
-        window.location = "bajaAutor.php?id=" + id;
-    }
-}
-
-function modifAutor(){
-    var id = $(this).attr("alt");
-    window.location = "modifAutor.php?id=" + id;
+function truncateOnWord(str, limit) {
+    var trimmable = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u2028\u2029\u3000\uFEFF';
+    var reg = new RegExp('(?=[' + trimmable + '])');
+    var words = str.split(reg);
+    var count = 0;
+    return words.filter(function(word) {
+        count += word.length;
+        return count <= limit;
+    }).join('');
 }
 
 function cambioPagina(){
     var pag = $(this).attr("alt");
-    traigoAutores(pag);
+    getPubs(pag);
 }
 
-function aplicarFiltro(){
-    traigoAutores(pagina)
-}
-
-function traigoFechaHora(){
-    $.ajax({
-        url: "fechaHora.php",
-        type: "POST",
-        dataType: "HTML",
-        success: respuestaFechaHora
-    });
-}
-
-function respuestaFechaHora(data){
-    $("#fechaHora").html(data);
-}
-
-function getUsers(pPagina){
+function getPubs(pPagina){
     pagina = parseInt(pPagina);
     $.ajax({
-        url: "adminUsrGet.php",
+        url: "adminPubGet.php",
         dataType: "JSON",
         type: "POST",
         data: "pagina=" + pPagina,
-        success: loadUsers
-        
+        success: loadPubs 
     });
 }
 
-function loadUsers(datos){
-    var usrs, tabla="", tmpUsr;
+function loadPubs(datos){
+    var pubs, tabla="", tmpPub;
     if(datos["status"]=="OK"){
         //proceso los datos y muestro en la tabla
-        usrs = datos["data"];
-        for(pos = 0; pos<=usrs.length-1; pos++){
-            tmpUsr = usrs[pos];
+        pubs = datos["data"];
+        for(pos = 0; pos<=pubs.length-1; pos++){
+            tmpPub = pubs[pos];
             tabla = tabla + "<tr>";
-            tabla = tabla + "<td>" + tmpUsr['nombreUsr'] + "</td>";
-            tabla = tabla + "<td>" + tmpUsr['apellido'] + "</td>";
-            tabla = tabla + "<td><img src='fotosautores/" + tmpAutor['foto'] + "' width='30px'/></td>";
-            tabla = tabla + "<td>";
-            tabla = tabla + "<input type='button' class='btnModificar' value='Modificar' alt='" + tmpAutor['id'] + "'/>";
-            tabla = tabla + "<input type='button' class='btnBorrar' value='Borar' alt='" + tmpAutor['id'] + "'/>";
-            tabla = tabla + "</td>";
+            tabla = tabla + "<td>" + ucwords(tmpPub['titulo'].toLowerCase(), true) + "</td>";
+            tabla = tabla + "<td>" + truncateOnWord(tmpPub['texto'], 150) + "...</td>";
+            tabla = tabla + "<td>" + tmpPub['fecha'] + "</td>";
+            tabla = tabla + "<td><img src='img/" + tmpPub['imagen'] + "' width='100px' class='view overlay rounded z-depth-1-half mb-lg-0 mb-4'></td>";
+            tabla = tabla + "<td>" + tmpPub['nombreCat'] + "</td>";
+            tabla = tabla + "<td>" + tmpPub['nombreTipo'] + "</td>";
+            tabla = tabla + "<td>" + tmpPub['nombreUsr'] + " " + tmpPub['apellido'] + "</td>";
+            tabla = tabla + "<td>" + 
+                                "<form method='GET' action='adminPubDel.php'>" +
+                                      "<input type='text' id='id' name='id' class='form-control' value='" + tmpPub['publicacion_id'] + "' hidden>" +
+                                      "<input type='submit' name='Eliminar' class='py-1 my-1 btn indigo darken-4 btn-sm m-0' value='Eliminar'>" +
+                                "</form>" +
+                                "<form method='GET' action='adminPubMod.php'>" + 
+                                    "<input type='text' id='id' name='id' class='form-control' value='" + tmpPub['publicacion_id'] + "' hidden>" +
+                                    "<input type='submit' name='Modificar' class='py-1 my-1 btn indigo darken-4 btn-sm m-0 btnModifPub' value='Modificar'>" +
+                                "</form>";
             tabla = tabla + "</tr>";
+          
         }
-        $("#usrTableBody").html(tabla);
-        $(".btnBorrar").click(borrarAutor);
-        $(".btnModificar").click(modifAutor);
-        $("#pagina").html(pagina);
-        $("#pagUlt").html(datos["ultima"]);
+        $("#tableBody").html(tabla);
+
+        $("#currentPage").html(pagina);
+        $("#lastPage").html(datos["ultima"]);
+
         if(pagina-1>0){
-            $("#btnAnt").attr("alt",(pagina-1));
+            $("#btnPrev").attr("alt",(pagina-1));
         }
         else{
-            $("#btnAnt").attr("alt",1);
+            $("#btnPrev").attr("alt",1);
         }
         if(pagina+1<datos["ultima"]){
-            $("#btnSig").attr("alt",(pagina+1));
+            $("#btnNext").attr("alt",(pagina+1));
         }
         else{            
-            $("#btnSig").attr("alt",datos["ultima"]);
+            $("#btnNext").attr("alt",datos["ultima"]);
         }
-        $("#btnUlt").attr("alt",datos["ultima"]);
+        $("#btnLast").attr("alt",datos["ultima"]);
     }
     else{
         alert("Se produjo un error!");

@@ -43,7 +43,7 @@
                         <th scope="col">Administrador</th>
                         <th scope="col">Acciones</th>
                     </tr>
-                    <tbody id="usrTableBody">
+                    <tbody id="tableBody">
                     </tbody>
 
                     {* {foreach from=$usrs item=usr}

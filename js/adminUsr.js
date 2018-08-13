@@ -3,18 +3,17 @@ $(document).ready(inicializo);
 var pagina=0;
 
 function inicializo(){
-    $("#btnIni").click(cambioPagina);
-    $("#btnAnt").click(cambioPagina);
-    $("#btnSig").click(cambioPagina);
-    $("#btnUlt").click(cambioPagina);
+    $("#btnFirst").click(cambioPagina);
+    $("#btnPrev").click(cambioPagina);
+    $("#btnNext").click(cambioPagina);
+    $("#btnLast").click(cambioPagina);
     //Cargo la primer página
     getUsers(1);
 }
 
 function cambioPagina(){
     var pag = $(this).attr("alt");
-    alert(pag);
-    loadUsers(pag);
+    getUsers(pag);
 }
 
 function getUsers(pPagina){
@@ -57,7 +56,7 @@ function loadUsers(datos){
             tabla = tabla + "</td>";
             tabla = tabla + "</tr>";
         }
-        $("#usrTableBody").html(tabla);
+        $("#tableBody").html(tabla);
 
         $("#currentPage").html(pagina);
         $("#lastPage").html(datos["ultima"]);
