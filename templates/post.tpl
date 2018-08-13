@@ -15,6 +15,8 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
+        <!-- JQuery -->
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     </head>
     <body class="bg grey lighten-3">
           {include file="navbar.tpl"}
@@ -30,7 +32,7 @@
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-8 px-5 pt-5 shadow white">
+                <div class="col-8 px-5 pt-5 pb-5 mb-5 shadow white">
                   <div class="row">
                     <div class="col-9 my-auto">
                       <!-- Category -->
@@ -50,10 +52,12 @@
                       </a>
                     </div>
                     <div class="col-2">
-                      <form method='POST' action='favoriteAdd.php'>
-                        <input type='text' id='id' name='id' class='form-control' value="{$post['publicacion_id']}" hidden> 
-                        <input type='submit' class='btn btn-primary btn-md p-0' name='submit' value='Agregar a favoritos'>
-                      </form> 
+                      {if {$logged}}
+                        <form method='POST' action='favoritesAdd.php'>
+                          <input type='text' id='id' name='id' class='form-control' value="{$post['publicacion_id']}" hidden> 
+                          <input type='submit' class='btn btn-primary btn-md p-0' name='submit' value='Agregar a favoritos'>
+                        </form> 
+                      {/if}
                     </div>
                   </div>
                   <!-- Post title -->
@@ -69,6 +73,85 @@
                   <p class="mt-5 dark-grey-text text-justify">{$post['texto']}</p>
                   <!-- Post data -->
                   <p>escrito por <a class="font-weight-bold">{$post['nombreUsr']} {$post['apellido']}</a>, {$post['fecha']}</p>
+
+                  <hr>
+                  {if {$cantidadComentarios} == 0}
+                    <p>No hay comentarios</p>
+                  {else}
+                    
+                    <!--Section: Comments-->
+                    <section class="my-5">
+                      <!-- Card header -->
+                      <div class="card-header border-0 font-weight-bold">{$cantidadComentarios} comentarios</div>
+                      {foreach from=$comments item=comment}
+                        <div class="media d-block d-md-flex mt-4">
+                          <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                            <h5 class="font-weight-bold mt-0">
+                              <p class="">{$comment['nombreUsr']} {$comment['apellido']}</p>
+                            </h5>
+                            {$comment['detalle']}
+
+                            {if {$comment['respuesta']} != ""}
+                              <div class="media d-block d-md-flex mt-4">
+                                <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                                  <h5 class="font-weight-bold mt-0">
+                                    <p class="">{$post['nombreUsr']} {$post['apellido']}</p>
+                                  </h5>
+                                  {$comment['respuesta']}
+                                </div>
+                              </div>
+                            {else}
+                              {if {$usuario_id} == {$post['usuario_id']} }
+                                <!-- Reply -->
+                                <form class="" method="POST" action="postCommentAddReply.php">
+                                  <textarea class="md-textarea form-control" id="reply" name="reply" rows="3" placeholder="Ingresa tu respuesta" required></textarea>
+
+                                  <div class="text-center my-4">
+                                    <input type="text" id="post_id" name="post_id" class="form-control" value="{$post['publicacion_id']}" hidden>
+                                    <input type="text" id="comment_id" name="comment_id" class="form-control" value="{$comment['comentario_id']}" hidden>
+                                    <button class="btn btn-default btn-sm btn-rounded indigo darken-4" type="submit">Responder</button>
+                                  </div>
+                                </form>
+                              {/if}
+                            {/if}
+                          </div>
+                        </div>
+                        <hr>
+                      {/foreach}
+                    </section>
+                    <!--Section: Comments-->   
+                  {/if}
+
+                  {if {$logged}}
+                    <!-- Comentario -->
+                    <form class="" method="POST" action="postCommentAdd.php">
+                      <textarea class="md-textarea form-control" id="comment" name="comment" rows="3" placeholder="Ingresa tu comentario" required></textarea>
+                      <input type="text" id="post_id" name="post_id" class="form-control" value="{$post['publicacion_id']}" hidden>
+                      <input type="text" id="user_id" name="user_id" class="form-control" value="{$usuario_id}" hidden>
+
+                      <div class="text-center my-4">
+                        <button class="btn btn-default btn-sm btn-rounded indigo darken-4" type="submit">Comentar</button>
+                      </div>
+                    </form>
+                  {else}
+                    <div class="text-center my-auto">
+                      <p>
+                        <a href="login.php" class="btn btn-default btn-sm btn-rounded indigo darken-4 nohover">Inicia sesion</a>
+                        
+                        <a href="signup.php" class="btn btn-default btn-sm btn-rounded indigo darken-4 nohover">regístrate</a>
+                        Para poder Comentar en la publicación!
+                      </p>
+                    </div>
+                  {/if}
+                  {* <!--Pagination-->
+                  <div class="row container justify-content-center my-auto">
+                      <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnFirst' alt='1' value='<<'>
+                      <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnPrev' alt='' value='<'>
+                      <span id="currentPage" class="mt-2">0</span><span class="mt-2"> / </span><span id="lastPage" class="mt-2">0</span>
+                      <input type='button' class='btn btn-primary btn-sm py-0 px-1 indigo darken-4' id='btnNext' alt='' value='>'>
+                      <input type='button' class='btn btn-primary btn-sm p-0 indigo darken-4' id='btnLast' alt='' value='>>'>
+                  </div>   *}
+                  <!--Pagination -->
                 </div>
                 <!-- Grid column -->
               </div>
@@ -79,8 +162,6 @@
           <!--./Section: Recipies-->
 
         <!-- SCRIPTS -->
-        <!-- JQuery -->
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->

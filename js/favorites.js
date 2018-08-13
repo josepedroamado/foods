@@ -74,7 +74,7 @@ function loadFavs(datos){
             tabla = tabla +         "<div class='col-lg-7 col-xl-8'>";
             tabla = tabla +             "<!-- Category -->";
             tabla = tabla +             "<a class='pink-text'>"; 
-            tabla = tabla +                 "<h6 class='font-weight-bold mb-3'><i class='" + icon + "pr-2'></i>" + tmpFav['nombreCat'] + "</h6></a>";
+            tabla = tabla +                 "<h6 class='font-weight-bold mb-3'><i class='" + icon + " pr-2'></i>" + tmpFav['nombreCat'] + "</h6></a>";
             tabla = tabla +             "<!-- Post title -->"; 
             tabla = tabla +             "<h3 class='font-weight-bold mb-3'><strong>" + ucwords(tmpFav['titulo'].toLowerCase(), true) + "</strong></h3>";
             tabla = tabla +             "<!-- Excerpt -->";
@@ -85,11 +85,11 @@ function loadFavs(datos){
             tabla = tabla +             "<div class='row'>";
             tabla = tabla +                 "<form method='GET' action='post.php'>";
             tabla = tabla +                     "<input type='text' id='id' name='id' class='form-control' value='" + tmpFav['publicacion_id'] + "' hidden>";
-            tabla = tabla +                     "<input type='submit' class='btn btn-primary btn-md p-2' name='submit' value='Leer más!'>";
+            tabla = tabla +                     "<input type='submit' class='btn btn-primary btn-md p-2 indigo darken-4' name='submit' value='Leer más!'>";
             tabla = tabla +                 "</form>";
-            tabla = tabla +                 "<form method='POST' action='favoriteDel.php'>";
+            tabla = tabla +                 "<form method='POST' action='favoritesDel.php'>";
             tabla = tabla +                     "<input type='text' id='id' name='id' class='form-control' value='" + tmpFav['publicacion_id']+ "' hidden>";
-            tabla = tabla +                     "<input type='submit' class='btn btn-primary btn-md p-2' name='submit' value='Quitar'>";
+            tabla = tabla +                     "<input type='submit' class='btn btn-primary btn-md p-2 indigo darken-4' name='submit' value='Quitar'>";
             tabla = tabla +                 "</form>"; 
             tabla = tabla +             "</div>"; 
             tabla = tabla +         "</div>"; 

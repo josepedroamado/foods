@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.32, created on 2018-08-13 17:57:11
+  from '/var/www/templates/publications.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b71c6770f0098_19533338',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '057922e80b5ea7819205e0751b1cf1d088e03905' => 
+    array (
+      0 => '/var/www/templates/publications.tpl',
+      1 => 1534183028,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:navbar.tpl' => 1,
+  ),
+),false)) {
+function content_5b71c6770f0098_19533338 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -16,11 +40,16 @@
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
         <!-- JQuery -->
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/publications.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/jquery-3.3.1.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/publications.js"><?php echo '</script'; ?>
+>
     </head>
     <body class="bg grey lighten-3">
-        {include file="navbar.tpl"}
+        <?php $_smarty_tpl->_subTemplateRender("file:navbar.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
         <!-- Publicaciones -->
         <div name = "publications" class="pt-5 mt-5 px-5 mx-5">
@@ -41,9 +70,18 @@
                         <label class="font-weight-light ml-3">Tipo</label>
                         <select name="type" id="type" class="browser-default ml-3" required>
                             <option value="0" disabled selected>Seleccionar una opción</option>
-                            {foreach from=$types item=$type}
-                                <option value="{$type['tipo_id']}">{$type['nombreTipo']}</option>
-                            {/foreach}}
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['types']->value, 'type');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['type']->value) {
+?>
+                                <option value="<?php echo $_smarty_tpl->tpl_vars['type']->value['tipo_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['type']->value['nombreTipo'];?>
+</option>
+                            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>}
                         </select>
                     </div>
                     <!-- Select Categoria -->
@@ -51,9 +89,18 @@
                         <label class="font-weight-light ml-3">Categoría</label>
                         <select name="cat" id="cat" class="browser-default ml-3" required>
                             <option value="0" disabled selected>Seleccionar una opción</option>
-                            {foreach from=$cats item=$cat}
-                                <option value="{$cat['categoria_id']}">{$cat['nombreCat']}</option>
-                            {/foreach}}
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['cats']->value, 'cat');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->value) {
+?>
+                                <option value="<?php echo $_smarty_tpl->tpl_vars['cat']->value['categoria_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value['nombreCat'];?>
+</option>
+                            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>}
                         </select>
                     </div>
                     <!--Botones-->
@@ -70,56 +117,7 @@
                 <!--./Cabezal -->
 
                 <!-- Cuerpo publicaciones-->
-                {* {foreach from=$recipies item=recipie} 
-                    <!-- Grid row -->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-lg-5 col-xl-4">
-                            <!-- Featured image -->
-                            <div class="">
-                                <img class="img-fluid view overlay rounded z-depth-1-half mb-lg-0 mb-4" src="img/{$recipie['imagen']}">
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-lg-7 col-xl-8">
-                            <!-- Category -->
-                            <a class="pink-text">
-                                <h6 class="font-weight-bold mb-3">
-                                    <i class="
-                                        {if {$recipie['tipo_id']} == 1 }
-                                            fa fa-cutlery
-                                        {else}
-                                            fa fa-sticky-note
-                                        {/if}
-                                        pr-2">        
-                                    </i>
-                                    {$recipie['nombreCat']}
-                                </h6>
-                            </a>
-                            <!-- Post title -->
-                            <h3 class="font-weight-bold mb-3"><strong>{$recipie['titulo']|lower|capitalize}</strong></h3>
-                            <!-- Excerpt -->
-                            <p class="dark-grey-text">{$recipie['texto']|truncate:150}</p>
-                            <!-- Post data -->
-                            <p>escrito por <a class="font-weight-bold">{$recipie['nombreUsr']} {$recipie['apellido']}</a>, {$recipie['fecha']}</p>
-                            <!-- Read more button -->
-                            <form method="GET" action="post.php">
-                                <input type="text" id="id" name="id" class="form-control" value="{$recipie['publicacion_id']}" hidden>
-                                <input type="submit" class="btn btn-primary btn-md p-2" name="submit" value="Leer más!">
-                            </form>
-                        </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                    <hr class="my-5">
-                {/foreach} *}
-                <div id="contentAJAX" name="contentAJAX">
+                                <div id="contentAJAX" name="contentAJAX">
                     
                 </div>  
                 <!--./Cuerpo publicaciones-->
@@ -140,10 +138,17 @@
         <!-- SCRIPTS -->
         
         <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="js/popper.min.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/popper.min.js"><?php echo '</script'; ?>
+>
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/bootstrap.min.js"><?php echo '</script'; ?>
+>
         <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="js/mdb.min.js"><?php echo '</script'; ?>
+>
     </body>
-</html>
+</html><?php }
+}

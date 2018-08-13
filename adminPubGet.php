@@ -25,7 +25,7 @@ if($conn){
     $sql = "SELECT publicaciones.*, categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido, tipos.nombreTipo
 			FROM publicaciones, categorias, usuarios, tipos
 			WHERE publicaciones.eliminado = 0 AND publicaciones.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = tipos.tipo_id AND publicaciones.categoria_id = categorias.categoria_id
-			ORDER BY fecha ASC";
+			ORDER BY fecha DESC";
     $sql .= " LIMIT " . (($pagina * CANTXPAG)-CANTXPAG) . "," . CANTXPAG;
 
     $parametros = array();
