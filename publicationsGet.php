@@ -16,7 +16,13 @@ if($pagina <= 0){
 $respuesta = array("status"=>"OK", "data"=>array(), "ultima" => 0);
 
 if($conn){
-    $sql = "SELECT COUNT(*) cantidad FROM publicaciones";
+    $sql = "SELECT COUNT(*) cantidad FROM publicaciones WHERE 1";
+    if ($cat != NULL) {
+        $sql .= " AND publicaciones.categoria_id = " . $cat;
+    }
+    if ($type != NULL) {
+        $sql .= " AND publicaciones.tipo_id = " . $type;
+    }
     $parametros = array(); 
 
     //Ejecuto la consulta con los parámetros

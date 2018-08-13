@@ -25,10 +25,14 @@ if($conn){
     $ultima = ceil($fila['cantidad']/CANTXPAG);
 
     //Armo la SQL y paso los parámetros
-    $sql = "SELECT favoritos.*, publicaciones.*, categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido, tipos.nombreTipo
-            FROM favoritos, publicaciones, categorias, usuarios, tipos
-            WHERE favoritos.usuario_id = :id AND publicaciones.eliminado = 0 AND favoritos.publicacion_id = publicaciones.publicacion_id AND favoritos.usuario_id = usuarios.usuario_id AND publicaciones.tipo_id = tipos.tipo_id AND publicaciones.categoria_id = categorias.categoria_id
-             ORDER BY fecha ASC";
+    $sql = "SELECT favoritos.favorito_id, publicaciones. * , categorias.nombreCat, usuarios.nombreUsr, usuarios.apellido
+            FROM favoritos, publicaciones, categorias, usuarios
+            WHERE favoritos.usuario_id = :id
+            AND publicaciones.eliminado =0
+            AND favoritos.publicacion_id = publicaciones.publicacion_id
+            AND publicaciones.usuario_id = usuarios.usuario_id
+            AND publicaciones.categoria_id = categorias.categoria_id
+            ORDER BY publicaciones.fecha DESC";
     $sql .= " LIMIT " . (($pagina * CANTXPAG)-CANTXPAG) . "," . CANTXPAG;
 
     $parametros = array();
