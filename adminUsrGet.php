@@ -12,7 +12,7 @@ if($pagina <= 0){
 $respuesta = array("status"=>"OK", "data"=>array(), "ultima" => 0);
 
 if($conn){
-    $sql = "SELECT COUNT(*) cantidad FROM usuarios";
+    $sql = "SELECT COUNT(*) cantidad FROM usuarios WHERE eliminado = 0";
     $parametros = array(); 
 
     //Ejecuto la consulta con los parámetros
