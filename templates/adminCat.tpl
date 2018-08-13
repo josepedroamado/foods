@@ -46,7 +46,7 @@
                             <td>
                                 <form method="POST" action="adminCatDel.php">
                                     <input type="text" id="id" name="id" class="form-control" value="{$cat['categoria_id']}" hidden>
-                                    <input type="submit" value="Borrar" class="btn indigo darken-4 btn-sm m-1">
+                                    <input type="submit" value="Eliminar" class="btn indigo darken-4 btn-sm m-1">
                                 </form>
                                 <form method="POST" action="adminCatMod.php">
                                     <input type="text" id="id" name="id" class="form-control" value="{$cat['categoria_id']}" hidden>

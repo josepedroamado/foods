@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 21:48:20
+/* Smarty version 3.1.32, created on 2018-08-13 01:10:58
   from '/var/www/templates/adminCat.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b70ab24ea6015_08511871',
+  'unifunc' => 'content_5b70daa2f3d8a3_79585165',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0071fc4212cfc5e5917c79fe2174e3385a36ac49' => 
     array (
       0 => '/var/www/templates/adminCat.tpl',
-      1 => 1534110499,
+      1 => 1534122379,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b70ab24ea6015_08511871 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b70daa2f3d8a3_79585165 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -77,7 +77,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cat']->value) {
                                 <form method="POST" action="adminCatDel.php">
                                     <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['cat']->value['categoria_id'];?>
 " hidden>
-                                    <input type="submit" value="Borrar" class="btn indigo darken-4 btn-sm m-1">
+                                    <input type="submit" value="Eliminar" class="btn indigo darken-4 btn-sm m-1">
                                 </form>
                                 <form method="POST" action="adminCatMod.php">
                                     <input type="text" id="id" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['cat']->value['categoria_id'];?>
