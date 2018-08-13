@@ -20,7 +20,7 @@
           {include file="navbar.tpl"}
 
           <!-- Section: Recipies -->
-          <div name = "lastRecipies" class="pt-5 mt-5 px-5 mx-5">
+          <div name = "post" class="pt-5 mt-5 px-5 mx-5">
             <!-- Section: Blog v.3 -->
             <section class="pt-2 mx-1 px-1">
               <!-- Grid row -->
@@ -34,7 +34,15 @@
                   <!-- Category -->
                   <a href="#!" class="pink-text">
                     <h6 class="font-weight-bold mb-3">
-                      <i class="fa fa-map pr-2"></i>
+                      <i class="
+                        {if {$post['tipo_id']} == 1 }
+                            fa fa-cutlery
+                        {else}
+                            fa fa-sticky-note
+                        {/if}
+                            pr-2"> 
+                      </i>
+                      {$post['nombreTipo']} - 
                       {$post['nombreCat']}
                     </h6>
                   </a>

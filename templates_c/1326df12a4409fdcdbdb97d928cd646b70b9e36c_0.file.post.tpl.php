@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-08-12 20:16:25
+/* Smarty version 3.1.32, created on 2018-08-13 00:19:46
   from '/var/www/templates/post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b709599f31157_19240680',
+  'unifunc' => 'content_5b70cea202ca55_74699351',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1326df12a4409fdcdbdb97d928cd646b70b9e36c' => 
     array (
       0 => '/var/www/templates/post.tpl',
-      1 => 1534090886,
+      1 => 1534119584,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:navbar.tpl' => 1,
   ),
 ),false)) {
-function content_5b709599f31157_19240680 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b70cea202ca55_74699351 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugins/modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?><!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
 ?>
 
           <!-- Section: Recipies -->
-          <div name = "lastRecipies" class="pt-5 mt-5 px-5 mx-5">
+          <div name = "post" class="pt-5 mt-5 px-5 mx-5">
             <!-- Section: Blog v.3 -->
             <section class="pt-2 mx-1 px-1">
               <!-- Grid row -->
@@ -61,7 +61,19 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/includes/libs/plugi
                   <!-- Category -->
                   <a href="#!" class="pink-text">
                     <h6 class="font-weight-bold mb-3">
-                      <i class="fa fa-map pr-2"></i>
+                      <i class="
+                        <?php ob_start();
+echo $_smarty_tpl->tpl_vars['post']->value['tipo_id'];
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1 == 1) {?>
+                            fa fa-cutlery
+                        <?php } else { ?>
+                            fa fa-sticky-note
+                        <?php }?>
+                            pr-2"> 
+                      </i>
+                      <?php echo $_smarty_tpl->tpl_vars['post']->value['nombreTipo'];?>
+ - 
                       <?php echo $_smarty_tpl->tpl_vars['post']->value['nombreCat'];?>
 
                     </h6>
